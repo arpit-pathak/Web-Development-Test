@@ -5,8 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>answer2</title>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+           text-align: center;
+            height: 50vh;
+            width: 50%;
+            background-color: rgb(187, 187, 187);
+        }
+        .input-area{
+            padding: 1rem;
+            background-color: rgb(1, 74, 137);
+            font-size: 1.3rem;
+            color: white;
+        }
+        input,button{
+            font-size: 1.4rem;
+        }
+    
+        li{
+          margin : 10px;
+          padding: 5px;
+          list-style-type: none;
+          background-color: rgb(248, 248, 248);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+    <section class="input-area">
+      <input type="text" id="input" placeholder="Enter text">
+      <button id="submit">Submit</button>
+    </section>
+<div id="list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const input = document.getElementById("input");
+          const submitButton = document.getElementById("submit");
+          const list = document.getElementById("list");
     
-</body>
+          submitButton.addEventListener("click", () => {
+            const text = input.value;
+            if (text.trim() !== "") {
+              const listItem = document.createElement("li");
+              listItem.textContent = text;
+              list.appendChild(listItem);
+              input.value = "";
+            }
+          });
+        });
+      </script>
+    </body>
 </html>
